@@ -10,7 +10,6 @@ export default function Detail(props) {
         <div
             id="popup-modal"
             tabIndex={-1}
-            // style={{ backgroundImage: `URL(${poke.img})` }}
             className="overflow-y-auto pt-11 overflow-x-hidden fixed top-0 right-0 left-0 z-50 md:inset-0 h-modal  justify-center items-center flex "
             aria-modal="true"
             role="dialog"
@@ -20,7 +19,7 @@ export default function Detail(props) {
 
                     <div className="p-6 text-center relative -top-24 m-auto  ">
 
-                        <img src={poke.img} alt="" className='m-auto w-48' />
+                        <img src={poke.img ?? './assets/Image_not_available.png'} alt="" className='m-auto w-48' />
                         <div className='flex justify-center items-center flex-wrap gap-3 mb-6'>
                             <span className="bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-green-200 dark:text-green-900">Height:{poke.height && poke.height}</span>
                             <span className="bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-green-200 dark:text-green-900">Weight:{poke.weight && poke.weight}</span>

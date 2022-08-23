@@ -24,7 +24,7 @@ export default function FrontPage() {
       setPokemone(data.slice(0, page))
       setLoading(true)
       setPage((prev) => prev + 20)
-    }, 1000)
+    }, 2000)
 
   }
 
@@ -41,7 +41,7 @@ export default function FrontPage() {
 
   return (
     <>
-      {loading ? <div className="bg-yellow-100 h-full">
+      {loading ? <div>
         <div className="flex items-center w-72 mx-auto pt-10 sticky top-0 ">
           <label htmlFor="simple-search" className="sr-only">
             Search
@@ -86,13 +86,13 @@ export default function FrontPage() {
           <div className=" container mx-auto py-10 px-5  sm:hidden grid grid-cols-2 gap-4">
             {/* {pokemone.filter(item => item.name.toLowerCase().includes(search)).map((poke, index) => { */}
             {pokemone.map((poke, index) => {
-              if (poke.name.toLowerCase().includes(search) || poke.name.toUpperCase().includes(search)) {
+              if (poke.name.includes(search) || poke.name.toLowerCase().includes(search) || poke.name.toUpperCase().includes(search)) {
                 return (
 
                   <div key={index} className=" bg-yellow-300 rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
                     <img
                       className="rounded-t-lg m-auto"
-                      src={poke.img}
+                      src={poke.img ?? './assets/Image_not_available.png'}
                       alt="poke image"
                       onClick={() => {
                         setPoke(poke)
@@ -112,10 +112,10 @@ export default function FrontPage() {
           <div className="hidden container p-5 mx-auto sm:grid grid-cols-1 xl:grid-cols-2">
 
             {pokemone.map((poke, index) => {
-              if (poke.name.toLowerCase().includes(search) || poke.name.toUpperCase().includes(search)) {
+              if (poke.name.includes(search) || poke.name.toLowerCase().includes(search) || poke.name.toUpperCase().includes(search)) {
                 return (
                   <div key={index} className="flex flex-row bg-yellow-300 rounded-lg border shadow-md dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 m-2">
-                    <img className="object-contain w-96 ml-5 rounded-t-lg" src={poke.img} alt="" />
+                    <img className="object-contain w-96 ml-5 rounded-t-lg" src={poke.img ?? './assets/Image_not_available.png'} alt="" />
                     <div className="flex flex-col justify-center items-center p-4 space-y-4 w-full">
                       <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{poke.name}</h5>
                       <div className='flex flex-wrap justify-center items-center gap-2 '>
