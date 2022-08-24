@@ -82,7 +82,7 @@ export default function FrontPage() {
           dataLength={pokemone.length}
           next={loadData}
           hasMore={pokemone.length != totalLength}
-          loader={<img className="mx-auto p-5" src={spinner} alt="spinner" />}
+          loader={<img className="mx-auto px-8 py-5" src={spinner} alt="spinner" />}
         >
           <div className=" container mx-auto py-10 px-5  sm:hidden grid grid-cols-2 gap-4">
 
