@@ -39,7 +39,7 @@ export default function FrontPage() {
     document.body.style.overflow = 'hidden';
   }
   let filtererdPokemon = pokemone.filter(item => item.name.includes(search) || item.name.toLowerCase().includes(search) || item.name.toUpperCase().includes(search));
-  const notFound = <div className="absolute left-1/2 -translate-x-1/2 text-4xl">Pokemon not found</div>;
+  const notFound = <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2  text-4xl">Pokemon not found</div>;
   return (
     <>
       {loading ? <div>
@@ -79,6 +79,7 @@ export default function FrontPage() {
         </div>
 
         <InfiniteScroll
+
           dataLength={pokemone.length}
           next={loadData}
           hasMore={pokemone.length != totalLength}
