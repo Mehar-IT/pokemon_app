@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import { fetchData } from './api';
 import Detail from "./Detail";
 import pokemoneLogo from './assets/pokemon.png'
@@ -50,7 +50,7 @@ export default function FrontPage() {
             <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
               <svg
                 aria-hidden="true"
-                className="w-5 h-5 text-gray-500 dark:text-gray-400"
+                className="w-5 h-5 text-gray-500 "
                 fill="currentColor"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
@@ -66,7 +66,7 @@ export default function FrontPage() {
 
               type="text"
               id="simple-search"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5"
               placeholder="Search"
               value={search}
               onChange={(e) => {
@@ -89,7 +89,7 @@ export default function FrontPage() {
               if (poke.name.includes(search) || poke.name.toLowerCase().includes(search) || poke.name.toUpperCase().includes(search)) {
                 return (
 
-                  <div key={index} className=" bg-yellow-300 rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+                  <div key={index} className=" bg-yellow-300 rounded-lg border border-gray-200 shadow-md">
                     <img
                       className="rounded-t-lg m-auto"
                       src={poke.img ?? './assets/Image_not_available.png'}
@@ -100,7 +100,7 @@ export default function FrontPage() {
                       }}
                     />
                     <div className="p-5">
-                      <h5 className="mb-2 text-xl sm:text-2xl sm:font-bold text-center tracking-tight text-gray-900 dark:text-white">
+                      <h5 className="mb-2 text-xl sm:text-2xl sm:font-bold text-center tracking-tight text-gray-900">
                         {poke.name}
                       </h5>
                     </div>
@@ -109,40 +109,40 @@ export default function FrontPage() {
               }
             })}
           </div>
-          <div className="hidden container p-5 mx-auto sm:grid grid-cols-1 xl:grid-cols-2">
+          <div className="hidden xl:container p-8 mx-auto sm:grid grid-cols-1 xl:grid-cols-2">
 
             {pokemone.map((poke, index) => {
               if (poke.name.includes(search) || poke.name.toLowerCase().includes(search) || poke.name.toUpperCase().includes(search)) {
                 return (
-                  <div key={index} className="flex flex-row bg-yellow-300 rounded-lg border shadow-md dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 m-2">
+                  <div key={index} className="flex flex-row bg-yellow-300 rounded-lg border shadow-md m-2">
                     <img className="object-contain w-96 ml-5 rounded-t-lg" src={poke.img ?? './assets/Image_not_available.png'} alt="" />
                     <div className="flex flex-col justify-center items-center p-4 space-y-4 w-full">
-                      <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{poke.name}</h5>
+                      <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">{poke.name}</h5>
                       <div className='flex flex-wrap justify-center items-center gap-2 '>
-                        <span className="bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-green-200 dark:text-green-900">Height:{poke.height && poke.height}</span>
-                        <span className="bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-green-200 dark:text-green-900">Weight:{poke.weight && poke.weight}</span>
-                        <span className="bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-green-200 dark:text-green-900">Candy Cound:{poke.candy_count && poke.candy_count}</span>
-                        <span className="bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-green-200 dark:text-green-900">Egg:{poke.egg && poke.egg}</span>
+                        <span className="bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">Height:{poke.height && poke.height}</span>
+                        <span className="bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">Weight:{poke.weight && poke.weight}</span>
+                        <span className="bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">Candy Cound:{poke.candy_count && poke.candy_count}</span>
+                        <span className="bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">Egg:{poke.egg && poke.egg}</span>
                       </div>
                       <div className='flex justify-center py-3 '>
-                        <span className="bg-gray-100 text-gray-800 text-xs font-semibold mr-2  px-2.5 py-0.5 rounded dark:bg-gray-700  dark:text-gray-300">Type :</span>
+                        <span className="bg-gray-100 text-gray-800 text-xs font-semibold mr-2  px-2.5 py-0.5 rounded">Type :</span>
                         {poke.type.map((type, index) => (
-                          <span key={index} className="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">{type}</span>
+                          <span key={index} className="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">{type}</span>
                         ))}
 
                       </div>
-                      <span className="bg-gray-100 text-gray-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300 ">weaknesses</span>
+                      <span className="bg-gray-100 text-gray-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded ">weaknesses</span>
                       <div className='flex justify-center items-center flex-wrap gap-3 my-3 '>
                         {poke.weaknesses.map((type, index) => (
-                          <span key={index} className="bg-blue-100 text-red-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">{type}</span>
+                          <span key={index} className="bg-blue-100 text-red-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">{type}</span>
                         ))}
                       </div>
-                      <span className="bg-gray-100 text-gray-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300 ">Next Evolution</span>
+                      <span className="bg-gray-100 text-gray-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">Next Evolution</span>
                       <div className='flex justify-center items-center flex-wrap gap-3 my-3 '>
                         {poke.next_evolution && poke.next_evolution.map((type, index) => (
                           <div key={index}>
-                            <span className="bg-blue-100 text-indigo-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800" > {type.num}</span>
-                            <span className="bg-blue-100 text-indigo-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">{type.name}</span>
+                            <span className="bg-blue-100 text-indigo-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded " > {type.num}</span>
+                            <span className="bg-blue-100 text-indigo-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded ">{type.name}</span>
                           </div>
                         ))}
                       </div>
